@@ -3,7 +3,12 @@ module.exports = {
   content: ['./App.{js,jsx,ts,tsx}', './app/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
-	colors: {
+      fontFamily: {
+        body: 'Roboto_400Regular',
+        title: 'Roboto_700Bold',
+        alt: 'BaiJamjuree_700Bold',
+      },
+      colors: {
         gray: {
           50: '#EAEAEA',
           100: '#BEBEBF',
@@ -40,10 +45,8 @@ module.exports = {
           800: '#027435',
           900: '#025929',
         },
-      }
-
-	},
+      },
+    },
   },
   plugins: [],
 }
-
