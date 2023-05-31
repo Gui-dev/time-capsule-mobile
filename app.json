@@ -2,6 +2,7 @@
   "expo": {
     "name": "time-capsule",
     "slug": "time-capsule",
+    "scheme": "time-capsule",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
