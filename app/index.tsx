@@ -1,12 +1,6 @@
 import { useEffect } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import {
-  ActivityIndicator,
-  ImageBackground,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native'
+import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native'
 import { makeRedirectUri, useAuthRequest } from 'expo-auth-session'
 import {
   Roboto_400Regular,
@@ -15,16 +9,11 @@ import {
 } from '@expo-google-fonts/roboto'
 import { BaiJamjuree_700Bold } from '@expo-google-fonts/bai-jamjuree'
 import colors from 'tailwindcss/colors'
-import { styled } from 'nativewind'
 import * as SecureStore from 'expo-secure-store'
 import { useRouter } from 'expo-router'
 
-import blurBackground from './../src/assets/bg-blur.png'
 import Logo from './../src/assets/logo.svg'
-import Stripes from './../src/assets/stripes.svg'
 import { api } from './../src/lib/api'
-
-const StyledStripes = styled(Stripes)
 
 const discovery = {
   authorizationEndpoint: 'https://github.com/login/oauth/authorize',
@@ -86,15 +75,7 @@ export default function App() {
   }
 
   return (
-    <ImageBackground
-      source={blurBackground}
-      className="relative flex-1 items-center bg-gray-900 px-8 py-10"
-      imageStyle={{
-        position: 'absolute',
-        left: '-100%',
-      }}
-    >
-      <StyledStripes height={844} width={8} className="absolute left-2" />
+    <View className="flex-1 items-center px-8 py-10">
       <View className="flex-1 items-center justify-center gap-6">
         <Logo height={20} width={210} />
         <View className="space-y-2">
@@ -121,6 +102,6 @@ export default function App() {
         Feito com 💚 by Gui Silva
       </Text>
       <StatusBar style="light" translucent />
-    </ImageBackground>
+    </View>
   )
 }
