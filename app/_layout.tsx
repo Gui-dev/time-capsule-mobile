@@ -8,18 +8,29 @@ import {
 import { BaiJamjuree_700Bold } from '@expo-google-fonts/bai-jamjuree'
 import { styled } from 'nativewind'
 import colors from 'tailwindcss/colors'
+import * as SecureStore from 'expo-secure-store'
 
 import blurBackground from './../src/assets/bg-blur.png'
 import Stripes from './../src/assets/stripes.svg'
 import { Stack } from 'expo-router'
+import { useEffect, useState } from 'react'
 
 const StyledStripes = styled(Stripes)
 
 const Layout = () => {
+  const [isUserAuthenticated, setIsUserAuthenticated] = useState<
+    undefined | boolean
+  >(undefined)
   const [isLoadedFonts] = useFonts({
     Roboto_400Regular,
     Roboto_700Bold,
     BaiJamjuree_700Bold,
+  })
+
+  useEffect(() => {
+    SecureStore.getItemAsync('token').then((token) => {
+      setIsUserAuthenticated(!!token)
+    })
   })
 
   if (!isLoadedFonts) {
@@ -48,7 +59,10 @@ const Layout = () => {
             backgroundColor: 'transparent',
           },
         }}
-      />
+      >
+        <Stack.Screen name="index" redirect={isUserAuthenticated} />
+        <Stack.Screen name="memories" />
+      </Stack>
     </ImageBackground>
   )
 }
