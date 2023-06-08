@@ -41,6 +41,7 @@ export default function App() {
     discovery,
   )
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleGithubOAuthCode = async (code: string) => {
     try {
       const response = await api.post('/register', {
@@ -64,7 +65,7 @@ export default function App() {
       const { code } = response.params
       handleGithubOAuthCode(code)
     }
-  }, [response])
+  }, [response, handleGithubOAuthCode])
 
   if (!isLoadedFonts) {
     return (

@@ -7,6 +7,7 @@ import {
   Text,
   TextInput,
   View,
+  TouchableOpacity,
 } from 'react-native'
 import { Link, useRouter } from 'expo-router'
 import { Feather } from '@expo/vector-icons'
@@ -16,7 +17,6 @@ import * as ImagePicker from 'expo-image-picker'
 import * as SecureStore from 'expo-secure-store'
 
 import Logo from './../src/assets/logo.svg'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 import { api } from '../src/lib/api'
 
 const NewMemory = () => {
